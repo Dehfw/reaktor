@@ -1,0 +1,37 @@
+<div class="batch-header">
+    <h2>Name des Fermentes</h2>
+    <div fxLayout="row">
+        <div fxFlex="25">2L</div>
+        <div fxFlex="25">XXX</div>
+        <div fxFlex="25">XXX</div>
+        <div fxFlex="25">MHD 17W</div>
+    </div>
+</div>
+<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+        
+    <div class="example-box" *ngFor="let step of steps" cdkDrag cdkDragLockAxis="y" >
+        
+        <div fxFlex="10" fxFlexAlign="stretch">
+            <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+        </div>
+        <div fxFlex>
+            <div fxLayout="row"style="font-size: 1.5em;">
+                <div fxFlex>
+                    {{step.name}}
+                </div>
+                <div fxFlex="30" style="color:orangered; text-align: left;">
+                    <mat-icon aria-hidden="false" aria-label="Example home icon">alarm_on</mat-icon>
+                    {{step.interval}}
+                </div>
+            </div>
+            <div class="batch-step-comment"  fxLayout="row">{{step.comment}}</div>
+
+        </div>
+
+        <div fxFlex="5" fxFlexAlign="stretch">
+            <mat-icon aria-hidden="false" aria-label="Example home icon">more_vert</mat-icon>
+        </div>
+
+    </div>
+    
+</div>

@@ -1,0 +1,33 @@
+/* HeroesComponent's private CSS styles */
+  .intime{
+    color: greenyellow;
+  }
+
+  .overdue{
+    background-color: orangered;
+  }
+
+  .without-padding{
+    padding: 0px;
+  }
+
+  .reaktor-card{
+    margin: 10px;
+    padding: 5px;
+    background-color: white;
+    min-height: 75px;
+    display: flex;
+    box-shadow: 2px 2px 2px 0px rgba(128,128,128,1);
+  }
+
+  .ferment-name{
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .ferment-time{
+    font-size: 28px;
+    color: greenyellow;
+    display: flex;
+    align-items: center;
+  }

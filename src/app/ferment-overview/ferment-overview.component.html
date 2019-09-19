@@ -1,0 +1,25 @@
+
+<div class="reaktor-card" *ngFor="let ferment of ferments" [class.selected]="ferment === selectedFerment" (click)="onSelect(ferment)">
+    <div fxFlex="10" fxFlexAlign="stretch">
+        {{ferment.id}}
+    </div>
+
+    <div fxFlex="">
+        <div class="ferment-name" fxLayout="row">{{ferment.name}}</div>
+        <div fxLayout="row">{{ferment.stage}}</div>
+    </div>
+
+    <div class="overdue, ferment-time">
+        <span>{{ferment.time}}</span>
+    </div>
+</div>
+
+<div *ngIf="selectedFerment">
+    <h2>{{selectedferment.name | uppercase}} Details</h2>
+    <div><span>id: </span>{{selectedferment.id}}</div>
+    <div>
+    <label>name:
+        <input [(ngModel)]="selectedFerment.name" placeholder="name"/>
+    </label>
+    </div>
+</div>

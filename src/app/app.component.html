@@ -1,0 +1,14 @@
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="over" closed>
+        <h1 style="text-align: center; color: yellowgreen;">Menü</h1>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar>
+            <mat-icon (click)="sidenav.toggle()" aria-hidden="false" aria-label="Example">menu</mat-icon>
+            <h1>{{title}}</h1>
+        </mat-toolbar>  
+        <!--<app-ferment-overview></app-ferment-overview>-->
+        <hr/>
+        <app-ferment-batch></app-ferment-batch>
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,13 @@
+mat-sidenav-container{
+    height: 100%;
+    background-color:  rgb(200,200,200);
+}
+
+mat-toolbar{
+    background-color: greenyellow;
+}
+
+mat-sidenav{
+    background-color: rgb(25,25,25);
+    width:70%;
+}
