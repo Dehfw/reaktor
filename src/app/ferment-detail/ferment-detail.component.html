@@ -1,0 +1,9 @@
+<div *ngIf="ferment" class="reaktor-card">
+    <h2>{{ferment.name | uppercase}}</h2>
+    <div><span>id: </span>{{ferment.id}}</div>
+    <div>
+      <label>name:
+        <input [(ngModel)]="ferment.name" placeholder="name"/>
+      </label>
+    </div>
+</div>

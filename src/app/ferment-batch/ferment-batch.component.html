@@ -1,21 +1,21 @@
-<div class="batch-header">
-    <h2>Name des Fermentes</h2>
-    <div fxLayout="row">
-        <div fxFlex="25">2L</div>
-        <div fxFlex="25">XXX</div>
-        <div fxFlex="25">XXX</div>
-        <div fxFlex="25">MHD 17W</div>
-    </div>
-</div>
 <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-        
-    <div class="example-box" *ngFor="let step of steps" cdkDrag cdkDragLockAxis="y" >
-        
+    <div class="batch-header">
+        <h2>Name des Fermentes</h2>
+        <div fxLayout="row">
+            <div fxFlex="25">2L</div>
+            <div fxFlex="25">XXX</div>
+            <div fxFlex="25">XXX</div>
+            <div fxFlex="25">MHD 17W</div>
+        </div>
+    </div>
+
+    <div class="example-box" *ngFor="let step of steps" cdkDrag cdkDragLockAxis="y">
+
         <div fxFlex="10" fxFlexAlign="stretch">
             <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
         </div>
         <div fxFlex>
-            <div fxLayout="row"style="font-size: 1.5em;">
+            <div fxLayout="row" style="font-size: 1.5em;">
                 <div fxFlex>
                     {{step.name}}
                 </div>
@@ -24,14 +24,29 @@
                     {{step.interval}}
                 </div>
             </div>
-            <div class="batch-step-comment"  fxLayout="row">{{step.comment}}</div>
+            <div class="batch-step-comment" fxLayout="row">{{step.comment}}</div>
 
         </div>
 
         <div fxFlex="5" fxFlexAlign="stretch">
-            <mat-icon aria-hidden="false" aria-label="Example home icon">more_vert</mat-icon>
+            <mat-icon [matMenuTriggerFor]="menu">more_vert</mat-icon>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item>
+                    <mat-icon>edit</mat-icon>
+                    <span>Edit</span>
+                </button>
+                <button mat-menu-item>
+                    <mat-icon>delete</mat-icon>
+                    <span>Delete</span>
+                </button>
+                <button mat-menu-item disabled>
+                    <mat-icon>add</mat-icon>
+                    <span>Duplicate</span>
+                </button>
+            </mat-menu>
         </div>
 
     </div>
-    
+    <div class="example-box">add step</div>
+    <div (click)="goBack()" class="example-box">go back</div>
 </div>

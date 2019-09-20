@@ -9,5 +9,10 @@ mat-toolbar{
 
 mat-sidenav{
     background-color: rgb(25,25,25);
+    color: greenyellow;
     width:70%;
+}
+
+mat-sidenav mat-nav-list a{
+    color: greenyellow;
 }

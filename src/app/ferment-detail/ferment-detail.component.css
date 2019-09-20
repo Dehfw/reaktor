@@ -1,0 +1,8 @@
+.reaktor-card{
+    margin: 10px;
+    padding: 5px;
+    background-color: white;
+    min-height: 75px;
+    display: flex;
+    box-shadow: 2px 2px 2px 0px rgba(128,128,128,1);
+  }

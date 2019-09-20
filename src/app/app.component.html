@@ -1,14 +1,22 @@
 <mat-sidenav-container>
-    <mat-sidenav #sidenav mode="over" closed>
-        <h1 style="text-align: center; color: yellowgreen;">Menü</h1>
+    <mat-sidenav #sidenav mode="over" closed class='font-reaktor-green'>
+        <h1 style="text-align: center">Menü</h1>
+        <mat-nav-list class='font-reaktor-green'>
+            <a mat-list-item (click)="sidenav.toggle()" routerLink='/ferments'>Overview</a>
+            <a mat-list-item (click)="sidenav.toggle()" routerLink='/'>Ferment</a>
+        </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
         <mat-toolbar>
             <mat-icon (click)="sidenav.toggle()" aria-hidden="false" aria-label="Example">menu</mat-icon>
             <h1>{{title}}</h1>
-        </mat-toolbar>  
-        <!--<app-ferment-overview></app-ferment-overview>-->
+        </mat-toolbar> 
         <hr/>
+        <router-outlet></router-outlet>
+        <!--
+        <app-ferment-overview></app-ferment-overview>
         <app-ferment-batch></app-ferment-batch>
+        -->
     </mat-sidenav-content>
 </mat-sidenav-container>
+<app-messages></app-messages>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FERMENTS } from '../mock-ferments';import { Ferment } from '../ferment';
+import { Ferment } from '../ferment';
+import { FermentService } from '../ferment.service';
 
 @Component({
   selector: 'app-ferment-overview',
@@ -7,16 +8,22 @@ import { FERMENTS } from '../mock-ferments';import { Ferment } from '../ferment'
   styleUrls: ['./ferment-overview.component.css']
 })
 export class FermentOverviewComponent implements OnInit {
-  
-  selectedHero: Ferment;
-  ferments = FERMENTS;
 
-  constructor() {}
+  ferments: Ferment[] = [];
+  selectedFerment: Ferment;
 
-  ngOnInit() {}
+  constructor(private fermentService: FermentService) { }
 
-  
+  getFerments(): void {
+    this.fermentService.getFerments()
+      .subscribe(ferments => this.ferments = ferments);
+  }
+
+  ngOnInit() {
+    this.getFerments();
+  }
+
   onSelect(ferment: Ferment): void {
-    this.selectedHero = ferment;
+    this.selectedFerment = ferment;
   }
 }

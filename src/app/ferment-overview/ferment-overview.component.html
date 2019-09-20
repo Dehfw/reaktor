@@ -1,5 +1,5 @@
 
-<div class="reaktor-card" *ngFor="let ferment of ferments" [class.selected]="ferment === selectedFerment" (click)="onSelect(ferment)">
+<div class="reaktor-card" *ngFor="let ferment of ferments" [class.selected]="ferment === selectedFerment" (click)="onSelect(ferment)" routerLink="/ferment/{{ferment.id}}">
     <div fxFlex="10" fxFlexAlign="stretch">
         {{ferment.id}}
     </div>
@@ -14,12 +14,4 @@
     </div>
 </div>
 
-<div *ngIf="selectedFerment">
-    <h2>{{selectedferment.name | uppercase}} Details</h2>
-    <div><span>id: </span>{{selectedferment.id}}</div>
-    <div>
-    <label>name:
-        <input [(ngModel)]="selectedFerment.name" placeholder="name"/>
-    </label>
-    </div>
-</div>
+<app-ferment-detail [ferment]="selectedFerment"></app-ferment-detail>
