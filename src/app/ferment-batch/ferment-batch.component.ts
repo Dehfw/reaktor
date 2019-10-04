@@ -4,7 +4,7 @@ import { Location } from '@angular/common';
 
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { FermentService } from '../ferment.service';
-import { FermentStep } from '../ferment';
+import {Ferment, FermentStep} from '../ferment';
 
 @Component({
   selector: 'app-ferment-batch',
@@ -13,7 +13,7 @@ import { FermentStep } from '../ferment';
 })
 export class FermentBatchComponent implements OnInit {
   
-  steps : FermentStep[] = [];
+  private ferment : Ferment;
   
   constructor(
     private fermentService: FermentService,
@@ -29,11 +29,11 @@ export class FermentBatchComponent implements OnInit {
   */
 
   // extract which ferment is calling the batch comp
-  getFerment(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
+  getOne(): void {
+    const id = +this.route.snapshot.paramMap.get('id') || 0;
     console.log(id);
-    this.fermentService.getFermentsSteps(id)
-      .subscribe(steps => this.steps = steps);
+    this.fermentService.getOne(id)
+      .subscribe(ferment => this.ferment = ferment);
   }
 
   goBack(): void {
@@ -41,11 +41,12 @@ export class FermentBatchComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getFerment();
+    this.getOne();
   }
 
   drop(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.steps, event.previousIndex, event.currentIndex);
+    moveItemInArray(this.ferment.steps, event.previousIndex, event.currentIndex);
+    this.fermentService.saveFerment(this.ferment)
   }
 
 }

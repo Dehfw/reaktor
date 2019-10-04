@@ -1,6 +1,6 @@
 <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
     <div class="batch-header">
-        <h2>Name des Fermentes</h2>
+        <h2>ferment.name</h2>
         <div fxLayout="row">
             <div fxFlex="25">2L</div>
             <div fxFlex="25">XXX</div>
@@ -9,7 +9,7 @@
         </div>
     </div>
 
-    <div class="example-box" *ngFor="let step of steps" cdkDrag cdkDragLockAxis="y">
+    <div class="example-box" *ngFor="let step of ferment?.steps" cdkDrag cdkDragLockAxis="y">
 
         <div fxFlex="10" fxFlexAlign="stretch">
             <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>

@@ -15,7 +15,7 @@ export class FermentOverviewComponent implements OnInit {
   constructor(private fermentService: FermentService) { }
 
   getFerments(): void {
-    this.fermentService.getFerments()
+    this.fermentService.getAll()
       .subscribe(ferments => this.ferments = ferments);
   }
 
