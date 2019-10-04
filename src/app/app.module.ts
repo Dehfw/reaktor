@@ -23,6 +23,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FermentBatchStepAddComponent } from './ferment-batch-step-add/ferment-batch-step-add.component';
 import { FermentBatchStepComponent } from './ferment-batch-step/ferment-batch-step.component';
+import { StorageModule } from '@ngx-pwa/local-storage';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { FermentBatchStepComponent } from './ferment-batch-step/ferment-batch-st
     DragDropModule,
     FontAwesomeModule,
     MatDialogModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StorageModule.forRoot({ IDBNoWrap: true })
   ],
   providers: [],
   bootstrap: [AppComponent]
